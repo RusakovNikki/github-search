@@ -1,7 +1,7 @@
 import React from 'react';
 
-function App() {
+const HomePage = () => {
   return <div>Hello world</div>;
-}
+};
 
-export default App;
+export default HomePage;

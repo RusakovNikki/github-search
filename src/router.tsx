@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import App from './App';
+import HomePage from './pages/HomePage';
 
 const RouterWrapper = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" Component={App} />
+        <Route path="/" Component={HomePage} />
       </Routes>
     </BrowserRouter>
   );
