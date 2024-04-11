@@ -8,8 +8,6 @@ export interface ISnackbar {
 }
 
 const Snackbar = ({ text, open, onClose }: ISnackbar) => {
-  const [isOpenSnackbar, setOpenSnackbar] = useState<boolean>(false);
-
   useEffect(() => {
     if (open)
       setTimeout(() => {

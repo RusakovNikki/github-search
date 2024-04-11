@@ -16,11 +16,18 @@ const HomePage = () => {
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
 
   useEffect(() => {
+    if (isLoading) {
+      setOpenSnackbar(true);
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
     getRepositoriesByName(debouncedSearch, {
       page: repositoriesPage,
       perPage: 10,
     });
   }, [debouncedSearch, getRepositoriesByName, repositoriesPage]);
+  console.log(repositories?.items.length);
 
   return (
     <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
@@ -41,12 +48,6 @@ const HomePage = () => {
         />
         <Button>Копировать</Button>
       </div>
-      <Snackbar
-        text="Всем хай!"
-        open={openSnackbar}
-        onClose={() => setOpenSnackbar(false)}
-      />
-      <button onClick={() => setOpenSnackbar((prev) => !prev)}>qqqqq</button>
       {repositories?.items.map((repositoryItem) => (
         <Card
           title1="Stars count"
@@ -58,6 +59,12 @@ const HomePage = () => {
           mainDescription={repositoryItem.html_url}
         />
       )) ?? undefined}
+
+      <Snackbar
+        text="Загрузка..."
+        open={openSnackbar}
+        onClose={() => setOpenSnackbar(false)}
+      />
     </div>
   );
 };
