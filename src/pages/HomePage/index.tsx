@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../../components/feature/Card';
 import TextField from '../../components/feature/TextField';
 import Button from '../../components/core/Button';
 
 const HomePage = () => {
+  const [searchText, setSearchText] = useState<string>('');
+
   return (
     <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
       <div
@@ -15,7 +17,7 @@ const HomePage = () => {
           justifyContent: 'space-between',
         }}
       >
-        <TextField label="Position" placeholder="Unspecified" />
+        <TextField label="Поиск" placeholder="github-search" />
         <Button>Копировать</Button>
       </div>
       <Card

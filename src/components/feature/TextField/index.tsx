@@ -5,7 +5,8 @@ interface ITextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
-const TextField = ({ label }: ITextFieldProps) => {
+const TextField = (props: ITextFieldProps) => {
+  const { label } = props;
   return (
     <div className="form-item">
       {label && (
@@ -13,7 +14,12 @@ const TextField = ({ label }: ITextFieldProps) => {
           {label}
         </label>
       )}
-      <input id="#position" type="text" className="form-item__field" />
+      <input
+        id="#position"
+        type="text"
+        className="form-item__field"
+        {...props}
+      />
     </div>
   );
 };
