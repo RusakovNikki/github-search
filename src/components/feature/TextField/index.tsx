@@ -1,12 +1,13 @@
 import React from 'react';
+import './index.scss';
 
 interface ITextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  label: string;
 }
 
 const TextField = ({ label }: ITextFieldProps) => {
   return (
-    <div className="header__position form-item">
+    <div className="form-item">
       {label && (
         <label htmlFor="#position" className="form-item__title rubik-regular">
           {label}
