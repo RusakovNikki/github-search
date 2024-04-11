@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.scss';
 
 interface IContainerProps {
   width: string;
@@ -11,8 +12,6 @@ const Container = ({ width, children }: IContainerProps) => {
       className="container"
       style={{
         width: width,
-        height: '100%',
-        margin: '0 auto',
       }}
     >
       {children}
