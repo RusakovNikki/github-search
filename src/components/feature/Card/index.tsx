@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-interface ICardProps {
+interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   title1?: string;
   value1?: string;
   title2?: string;
@@ -23,9 +23,10 @@ const Card = ({
   value2,
   value3,
   imageLink,
+  ...props
 }: ICardProps) => {
   return (
-    <div className="jobs-container__item">
+    <div className="jobs-container__item" {...props}>
       {imageLink ? (
         <div className="jobs-container__logo-container">
           <img
