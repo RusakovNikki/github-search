@@ -48,17 +48,21 @@ const HomePage = () => {
         />
         <Button>Копировать</Button>
       </div>
-      {repositories?.items.map((repositoryItem) => (
-        <Card
-          title1="Stars count"
-          value1={repositoryItem.stargazers_count.toString()}
-          title2="Forks count"
-          value2={repositoryItem.forks_count.toString()}
-          mainTitle={repositoryItem.full_name}
-          imageLink={repositoryItem.owner.avatar_url}
-          mainDescription={repositoryItem.html_url}
-        />
-      )) ?? undefined}
+      {repositories?.items.length ? (
+        repositories.items.map((repositoryItem) => (
+          <Card
+            title1="Stars count"
+            value1={repositoryItem.stargazers_count.toString()}
+            title2="Forks count"
+            value2={repositoryItem.forks_count.toString()}
+            mainTitle={repositoryItem.full_name}
+            imageLink={repositoryItem.owner.avatar_url}
+            mainDescription={repositoryItem.html_url}
+          />
+        ))
+      ) : (
+        <div>Нет данных...</div>
+      )}
 
       <Snackbar
         text="Загрузка..."
