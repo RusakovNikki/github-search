@@ -57,7 +57,7 @@ ul {
 
   color: #000000;
 
-  @media (max-width: 450px) {
+  @media (max-width: 550px) {
     font-size: 32px;
     line-height: 38px;
     margin-bottom: 38px;
@@ -67,7 +67,7 @@ ul {
 .sortby {
   display: flex;
 
-  @media (max-width: 450px) {
+  @media (max-width: 550px) {
     flex-direction: column;
   }
 }
@@ -131,7 +131,7 @@ ul {
   margin-top: 90px;
   margin-bottom: 164px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 550px) {
     margin-top: 64px;
     margin-bottom: 94px;
   }
@@ -139,7 +139,7 @@ ul {
   &__title {
     margin-bottom: 74px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       margin-bottom: 32px;
     }
   }
@@ -148,7 +148,7 @@ ul {
     width: 438px;
     margin-bottom: 29px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       width: 272px;
     }
   }
@@ -156,7 +156,7 @@ ul {
   &__flex-container {
     display: flex;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       flex-direction: column;
     }
   }
@@ -175,7 +175,7 @@ ul {
     line-height: 160%;
     margin-top: 43px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       width: 283px;
     }
   }
@@ -193,7 +193,7 @@ ul {
     width: 307px;
     margin-bottom: 74px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       margin-top: 32px;
       width: 271px;
     }
@@ -204,7 +204,7 @@ ul {
     line-height: 24px;
     margin-bottom: 8px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       margin-top: 33px;
       font-size: 22px;
     }
@@ -215,7 +215,7 @@ ul {
     line-height: 32px;
     margin-bottom: 78px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       margin-top: 10px;
       font-size: 22px;
     }

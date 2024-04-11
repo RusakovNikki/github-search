@@ -6,8 +6,18 @@ import Button from '../../components/core/Button';
 const HomePage = () => {
   return (
     <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-      <Button>Обновить</Button>
-      <TextField label="Position" placeholder="Unspecified" />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '2rem',
+          alignItems: 'flex-end',
+          justifyContent: 'space-between',
+        }}
+      >
+        <TextField label="Position" placeholder="Unspecified" />
+        <Button>Обновить</Button>
+      </div>
       <Card
         title1="ссылку на репозиторий, текст ссылки - полное название репозитория"
         title2="число старов"
