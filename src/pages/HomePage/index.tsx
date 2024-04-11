@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../components/feature/Card';
 import TextField from '../../components/feature/TextField';
-import Button from '../../components/core/Button';
 import { observer } from 'mobx-react-lite';
 import repositoryStore from '../../store/repositoryStore';
 import Snackbar from '../../components/core/Snackbar';
 import { useThrottle } from '../../hooks/useThrottle';
 import Header from '../../components/feature/Header';
-import { Link, useNavigate } from 'react-router-dom';
-import copy from 'clipboard-copy';
+import { useNavigate } from 'react-router-dom';
 import CopyButton from '../../components/core/CopyButton';
+
+import noResultLogo from '../../images/no_result.gif';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -81,7 +81,22 @@ const HomePage = () => {
             />
           ))
         ) : (
-          <div>Нет данных...</div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img
+              src={noResultLogo}
+              alt="Нет данных..."
+              style={{
+                height: '400px',
+                width: 'fit-content',
+              }}
+            />
+          </div>
         )}
 
         <Snackbar
