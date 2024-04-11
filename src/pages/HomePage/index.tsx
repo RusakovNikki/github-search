@@ -9,6 +9,7 @@ import { useThrottle } from '../../hooks/useThrottle';
 import Header from '../../components/feature/Header';
 import { Link } from 'react-router-dom';
 import copy from 'clipboard-copy';
+import CopyButton from '../../components/CopyButton';
 
 const HomePage = () => {
   const { getRepositoriesByName, isError, isLoading, repositories } =
@@ -19,7 +20,6 @@ const HomePage = () => {
   const [isOpenLoadingSnackbar, setOpenLoadingSnackbar] =
     useState<boolean>(false);
   const [isOpenErrorSnackbar, setOpenErrorSnackbar] = useState<boolean>(false);
-  const [isCopied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
     if (isLoading) setOpenLoadingSnackbar(true);
@@ -34,14 +34,6 @@ const HomePage = () => {
       perPage: 10,
     });
   }, [debouncedSearch, getRepositoriesByName, repositoriesPage]);
-
-  const onClickCopy = () => {
-    copy(searchText);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  };
 
   return (
     <>
@@ -62,9 +54,7 @@ const HomePage = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <Button onClick={onClickCopy}>
-            {isCopied ? 'Скопировано' : 'Копировать'}
-          </Button>
+          <CopyButton text={searchText} />
         </div>
         {repositories && repositories?.items?.length ? (
           repositories?.items?.map((repositoryItem) => (
