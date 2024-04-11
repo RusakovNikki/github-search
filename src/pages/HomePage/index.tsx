@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Card from '../../components/feature/Card';
 import TextField from '../../components/feature/TextField';
 import Button from '../../components/core/Button';
 import { observer } from 'mobx-react-lite';
 import repositoryStore from '../../store/repositoryStore';
 import { useDebounce } from '../../hooks/useDebounce';
+import Snackbar from '../../components/core/Snackbar';
 
 const HomePage = () => {
   const { getRepositoriesByName, isError, isLoading, repositories } =
@@ -12,6 +13,7 @@ const HomePage = () => {
   const [searchText, setSearchText] = useState<string>('');
   const debouncedSearch = useDebounce(searchText);
   const [repositoriesPage, setRepositoriesPage] = useState<number>(1);
+  const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
 
   useEffect(() => {
     getRepositoriesByName(debouncedSearch, {
@@ -39,6 +41,12 @@ const HomePage = () => {
         />
         <Button>Копировать</Button>
       </div>
+      <Snackbar
+        text="Всем хай!"
+        open={openSnackbar}
+        onClose={() => setOpenSnackbar(false)}
+      />
+      <button onClick={() => setOpenSnackbar((prev) => !prev)}>qqqqq</button>
       {repositories?.items.map((repositoryItem) => (
         <Card
           title1="Stars count"
