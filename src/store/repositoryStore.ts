@@ -50,6 +50,9 @@ class RepositoryStore {
           },
         },
       );
+      if (response.status === 403)
+        throw new Error('403 is unacceptable for me!');
+      else this.isError = false;
       const data = (await response.json()) as IRepository;
 
       runInAction(() => {
