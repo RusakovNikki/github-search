@@ -1,0 +1,67 @@
+.header {
+  width: inherit;
+  border: 1px solid transparent;
+  margin-bottom: 30px;
+
+  &__title {
+    margin-top: 81px;
+    margin-bottom: 74px;
+
+    &-clear {
+      font-size: 16px;
+      line-height: 160%;
+      margin-top: 36px;
+      margin-left: 120px;
+      display: inline-block;
+      cursor: pointer;
+      color: #a3a6a9;
+
+      @media (max-width: 450px) {
+        margin-top: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__clear {
+    position: relative;
+  }
+
+  &__close-btn {
+    position: absolute;
+    right: -24px;
+    top: 40px;
+    cursor: pointer;
+
+    @media (max-width: 450px) {
+      right: 150px;
+      top: 4px;
+    }
+  }
+
+  &__ul {
+    margin-top: 15px;
+    border: 1px solid black;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__ul li {
+    display: block;
+    width: inherit;
+    padding: 15px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  &__show-btn {
+    position: absolute;
+    right: 0;
+    top: 39px;
+    cursor: pointer;
+
+    &--rotate {
+      transform: rotate(180deg);
+    }
+  }
+}
