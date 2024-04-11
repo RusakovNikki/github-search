@@ -25,10 +25,28 @@ const RepositoryPage = () => {
         <Button>К списку новостей</Button>
       </Link>
       <Card
-        title1="Stars count"
-        value1={repository.stargazers_count.toString()}
-        title2="Forks count"
-        value2={repository.forks_count.toString()}
+        info={[
+          {
+            title: 'Stars count: ',
+            value: repository.stargazers_count,
+          },
+          {
+            title: 'Forks count: ',
+            value: repository.forks_count,
+          },
+          {
+            title: 'Default branch: ',
+            value: repository.default_branch,
+          },
+          {
+            title: 'Open issues count: ',
+            value: repository.open_issues_count,
+          },
+          {
+            title: 'language: ',
+            value: repository.language,
+          },
+        ]}
         mainTitle={repository.full_name}
         imageLink={repository.owner.avatar_url}
         mainDescription={repository.html_url}

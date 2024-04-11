@@ -60,10 +60,16 @@ const HomePage = () => {
               to={`/repository/${repositoryItem.full_name.split('/').join('_')}`}
             >
               <Card
-                title1="Stars count"
-                value1={repositoryItem.stargazers_count.toString()}
-                title2="Forks count"
-                value2={repositoryItem.forks_count.toString()}
+                info={[
+                  {
+                    title: 'Stars count: ',
+                    value: repositoryItem.stargazers_count,
+                  },
+                  {
+                    title: 'Forks count: ',
+                    value: repositoryItem.forks_count,
+                  },
+                ]}
                 mainTitle={repositoryItem.full_name}
                 imageLink={repositoryItem.owner.avatar_url}
                 mainDescription={repositoryItem.html_url}

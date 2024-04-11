@@ -2,27 +2,20 @@ import React from 'react';
 import './index.scss';
 
 interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
-  title1?: string;
-  value1?: string;
-  title2?: string;
-  value2?: string;
-  title3?: string;
-  value3?: string;
   imageLink?: string;
   mainTitle: string;
   mainDescription: string;
+  info?: {
+    title: string;
+    value: string | number;
+  }[];
 }
 
 const Card = ({
   mainDescription,
   mainTitle,
-  title1,
-  title2,
-  title3,
-  value1,
-  value2,
-  value3,
   imageLink,
+  info,
   ...props
 }: ICardProps) => {
   return (
@@ -36,22 +29,15 @@ const Card = ({
           />
         </div>
       ) : undefined}
-      {title1 || title2 || title3 ? (
+      {info ? (
         <div className="jobs-container__flex-item">
           <div className="jobs-container__about about rubik-regular">
-            <p className="about__type">
-              {title1}
-              <span className="about__desc"> {value1}</span>
-            </p>
-            <p className="about__type">
-              {title2}
-              <span className="about__desc"> {value2}</span>
-            </p>
-
-            <p className="about__type">
-              {title3}
-              <span className="about__desc">{value3}</span>
-            </p>
+            {info?.map((infoItem) => (
+              <p className="about__type">
+                {infoItem.title}
+                <span className="about__desc"> {infoItem.value}</span>
+              </p>
+            ))}
           </div>
         </div>
       ) : undefined}
