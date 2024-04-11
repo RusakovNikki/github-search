@@ -16,7 +16,7 @@ const HomePage = () => {
         }}
       >
         <TextField label="Position" placeholder="Unspecified" />
-        <Button>Обновить</Button>
+        <Button>Копировать</Button>
       </div>
       <Card
         title1="ссылку на репозиторий, текст ссылки - полное название репозитория"
