@@ -450,29 +450,6 @@ ul {
   }
 }
 
-.button {
-  width: 226px;
-  font-size: 16px;
-  line-height: 160%;
-  text-align: center;
-  color: #ffffff;
-  padding: 11px;
-  background-color: black;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: 1px solid #000000;
-
-  &:hover {
-    background-color: #fff;
-    color: #000000;
-  }
-
-  &--margin {
-    margin-bottom: 20px;
-  }
-}
-
 .notfound-container {
   text-align: center;
 

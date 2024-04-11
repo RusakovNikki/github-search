@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../../components/feature/Card';
-import Button from '../../components/core/Container/Button';
 import TextField from '../../components/feature/TextField';
+import Button from '../../components/core/Button';
 
 const HomePage = () => {
   return (
