@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import CopyButton from '../../components/core/CopyButton';
 
 import noResultLogo from '../../images/no_result.gif';
+import Button from '../../components/core/Button';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ const HomePage = () => {
 
   useEffect(() => {
     getRepositoriesByName(debouncedSearch, {
-      page: repositoriesPage,
-      perPage: 10,
+      page: 1,
+      perPage: 10 * repositoriesPage,
     });
   }, [debouncedSearch, getRepositoriesByName, repositoriesPage]);
 
@@ -98,7 +99,11 @@ const HomePage = () => {
             />
           </div>
         )}
-
+        {repositories?.items.length ? (
+          <Button onClick={() => setRepositoriesPage((prev) => prev + 1)}>
+            Еще...
+          </Button>
+        ) : undefined}
         <Snackbar
           text="Загрузка..."
           open={isOpenLoadingSnackbar}
