@@ -9,7 +9,11 @@ const HomePage = () => {
       <Button>Обновить</Button>
       <TextField label="Position" placeholder="Unspecified" />
       <Card
+        title1="ссылку на репозиторий, текст ссылки - полное название репозитория"
+        title2="число старов"
+        title3="число форков"
         mainTitle="redbell"
+        imageLink="https://avatars.githubusercontent.com/u/79338989?v=4"
         mainDescription="Big Techs grip on social media is a growing problem"
       />
     </div>
