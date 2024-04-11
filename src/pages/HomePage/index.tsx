@@ -7,11 +7,12 @@ import repositoryStore from '../../store/repositoryStore';
 import Snackbar from '../../components/core/Snackbar';
 import { useThrottle } from '../../hooks/useThrottle';
 import Header from '../../components/feature/Header';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import copy from 'clipboard-copy';
-import CopyButton from '../../components/CopyButton';
+import CopyButton from '../../components/core/CopyButton';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const { getRepositoriesByName, isError, isLoading, repositories } =
     repositoryStore;
   const [searchText, setSearchText] = useState<string>('');
@@ -34,6 +35,10 @@ const HomePage = () => {
       perPage: 10,
     });
   }, [debouncedSearch, getRepositoriesByName, repositoriesPage]);
+
+  const handleClickCard = (full_name: string) => {
+    navigate(`/repository/${full_name.split('/').join('_')}`);
+  };
 
   return (
     <>
@@ -58,25 +63,22 @@ const HomePage = () => {
         </div>
         {repositories && repositories?.items?.length ? (
           repositories?.items?.map((repositoryItem) => (
-            <Link
-              to={`/repository/${repositoryItem.full_name.split('/').join('_')}`}
-            >
-              <Card
-                info={[
-                  {
-                    title: 'Stars count: ',
-                    value: repositoryItem.stargazers_count,
-                  },
-                  {
-                    title: 'Forks count: ',
-                    value: repositoryItem.forks_count,
-                  },
-                ]}
-                mainTitle={repositoryItem.full_name}
-                imageLink={repositoryItem.owner.avatar_url}
-                mainDescription={repositoryItem.html_url}
-              />
-            </Link>
+            <Card
+              info={[
+                {
+                  title: 'Stars count: ',
+                  value: repositoryItem.stargazers_count,
+                },
+                {
+                  title: 'Forks count: ',
+                  value: repositoryItem.forks_count,
+                },
+              ]}
+              mainTitle={repositoryItem.full_name}
+              imageLink={repositoryItem.owner.avatar_url}
+              mainDescription={repositoryItem.html_url}
+              onClick={() => handleClickCard(repositoryItem.full_name)}
+            />
           ))
         ) : (
           <div>Нет данных...</div>

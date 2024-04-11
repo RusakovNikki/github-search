@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../core/Button';
+import Button from '../Button';
 import copy from 'clipboard-copy';
 
 export interface ICopyButton {

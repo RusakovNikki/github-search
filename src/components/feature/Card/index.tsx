@@ -19,7 +19,10 @@ const Card = ({
   ...props
 }: ICardProps) => {
   return (
-    <div className="jobs-container__item" {...props}>
+    <div
+      className={`jobs-container__item ${props.onClick ? 'jobs-container__item-hover' : ''}`}
+      {...props}
+    >
       {imageLink ? (
         <div className="jobs-container__logo-container">
           <img
