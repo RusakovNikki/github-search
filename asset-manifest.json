@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/github-search/static/css/main.1d7b5ff5.css",
+    "main.js": "/github-search/static/js/main.b4b60bf8.js",
+    "static/media/no_result.gif": "/github-search/static/media/no_result.825635cf27aaa696a35b.gif",
+    "static/media/Roboto-Regular.woff": "/github-search/static/media/Roboto-Regular.31012f9b3e3da44f87e8.woff",
+    "static/media/Rubik-Regular.woff": "/github-search/static/media/Rubik-Regular.9b504b121d513b85cf70.woff",
+    "static/media/Rubik-Light.woff": "/github-search/static/media/Rubik-Light.b98975383295673ea225.woff",
+    "static/media/Formular.woff": "/github-search/static/media/Formular.254f9c824c206145dfc1.woff",
+    "index.html": "/github-search/index.html",
+    "main.1d7b5ff5.css.map": "/github-search/static/css/main.1d7b5ff5.css.map",
+    "main.b4b60bf8.js.map": "/github-search/static/js/main.b4b60bf8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d7b5ff5.css",
+    "static/js/main.b4b60bf8.js"
+  ]
+}
