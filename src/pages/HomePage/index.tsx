@@ -28,7 +28,6 @@ const HomePage = () => {
 
     if (isError) setOpenErrorSnackbar(true);
   }, [isLoading, isError]);
-  console.log(isError);
 
   useEffect(() => {
     getRepositoriesByName(debouncedSearch, {

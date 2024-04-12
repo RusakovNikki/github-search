@@ -22,7 +22,7 @@ const RepositoryPage = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Header title={correctFullName ?? ''} />
       <Link to={'/'}>
-        <Button>К списку новостей</Button>
+        <Button>К списку</Button>
       </Link>
       <Card
         info={[
