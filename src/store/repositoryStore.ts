@@ -36,33 +36,38 @@ class RepositoryStore {
   };
 
   getRepositoriesByName = async (
-    name: string,
+    name?: string,
     queries?: { page: number; perPage: number },
   ) => {
-    try {
-      this.isLoading = true;
-      const response = await fetch(
-        `https://api.github.com/search/repositories?q=$${name}${queries ? `&page=${queries?.page}&per_page=${queries?.perPage}` : ``}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      if (response.status === 403)
-        throw new Error('403 is unacceptable for me!');
-      else this.isError = false;
-      const data = (await response.json()) as IRepository;
-
+    if (!name) {
       runInAction(() => {
-        this.repositories = data;
+        this.repositories = undefined;
       });
-    } catch (error) {
-      this.isError = true;
-    } finally {
-      this.isLoading = false;
-    }
+    } else
+      try {
+        this.isLoading = true;
+        const response = await fetch(
+          `https://api.github.com/search/repositories?q=$${name}${queries ? `&page=${queries?.page}&per_page=${queries?.perPage}` : ``}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+        if (response.status === 403)
+          throw new Error('403 is unacceptable for me!');
+        else this.isError = false;
+        const data = (await response.json()) as IRepository;
+
+        runInAction(() => {
+          this.repositories = data;
+        });
+      } catch (error) {
+        this.isError = true;
+      } finally {
+        this.isLoading = false;
+      }
   };
 }
 

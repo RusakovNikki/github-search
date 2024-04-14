@@ -62,7 +62,7 @@ const HomePage = () => {
           <CopyButton text={searchText} />
         </div>
         {repositories && repositories?.items?.length ? (
-          repositories?.items?.map((repositoryItem) => (
+          repositories.items.map((repositoryItem) => (
             <Card
               info={[
                 {
@@ -78,6 +78,7 @@ const HomePage = () => {
               imageLink={repositoryItem.owner.avatar_url}
               mainDescription={repositoryItem.html_url}
               onClick={() => handleClickCard(repositoryItem.full_name)}
+              key={repositoryItem.id}
             />
           ))
         ) : (

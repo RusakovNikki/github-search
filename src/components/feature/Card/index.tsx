@@ -35,8 +35,8 @@ const Card = ({
       {info ? (
         <div className="jobs-container__flex-item">
           <div className="jobs-container__about about rubik-regular">
-            {info?.map((infoItem) => (
-              <p className="about__type">
+            {info?.map((infoItem, index) => (
+              <p className="about__type" key={index}>
                 {infoItem.title}
                 <span className="about__desc"> {infoItem.value}</span>
               </p>
