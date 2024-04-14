@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import CopyButton from '../../components/core/CopyButton';
 
 import noResultLogo from '../../images/no_result.gif';
+import searchImage from '../../images/search_image.gif';
 import Button from '../../components/core/Button';
 
 const HomePage = () => {
@@ -40,6 +41,8 @@ const HomePage = () => {
     navigate(`/repository/${full_name.split('/').join('_')}`);
   };
 
+  console.log(repositories?.items?.length);
+
   return (
     <>
       <Header title="GitHub search" />
@@ -55,13 +58,30 @@ const HomePage = () => {
         >
           <TextField
             label="Поиск"
-            placeholder="github-search"
+            placeholder="Введите название..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <CopyButton text={searchText} />
         </div>
-        {repositories && repositories?.items?.length ? (
+        {!repositories ? (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img
+              src={searchImage}
+              alt="Нет данных..."
+              style={{
+                maxHeight: '400px',
+                maxWidth: '100%',
+              }}
+            />
+          </div>
+        ) : repositories?.items?.length ? (
           repositories.items.map((repositoryItem) => (
             <Card
               info={[
