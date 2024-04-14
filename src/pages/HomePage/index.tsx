@@ -122,7 +122,8 @@ const HomePage = () => {
             />
           </div>
         )}
-        {repositories?.items.length ? (
+        {repositories &&
+        repositories.items.length < repositories.total_count ? (
           <Button onClick={() => setRepositoriesPage((prev) => prev + 1)}>
             Еще...
           </Button>
