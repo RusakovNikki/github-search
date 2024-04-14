@@ -20,21 +20,17 @@ const Card = ({
 }: ICardProps) => {
   return (
     <div
-      className={`jobs-container__item ${props.onClick ? 'jobs-container__item-hover' : ''}`}
+      className={`card__item ${props.onClick ? 'card__item-hover' : ''}`}
       {...props}
     >
       {imageLink ? (
-        <div className="jobs-container__logo-container">
-          <img
-            src={imageLink}
-            alt="логотип компании"
-            className="jobs-container__logo"
-          />
+        <div className="card__logo-container">
+          <img src={imageLink} alt="логотип компании" className="card__logo" />
         </div>
       ) : undefined}
       {info ? (
-        <div className="jobs-container__flex-item">
-          <div className="jobs-container__about about rubik-regular">
+        <div className="card__flex-item">
+          <div className="card__about about rubik-regular">
             {info?.map((infoItem, index) => (
               <p className="about__type" key={index}>
                 {infoItem.title}
@@ -44,14 +40,12 @@ const Card = ({
           </div>
         </div>
       ) : undefined}
-      <div className="jobs-container__flex-item">
-        <div className="jobs-container__desc">
-          <div className="jobs-container__title roboto">{mainTitle}</div>
-          <div className={`jobs-container__specifics  roboto`}>
-            {mainDescription}
-          </div>
+      <div className="card__flex-item">
+        <div className="card__desc">
+          <div className="card__title roboto">{mainTitle}</div>
+          <div className={`card__specifics  roboto`}>{mainDescription}</div>
         </div>
-        <div className="jobs-container__more-btn roboto"></div>
+        <div className="card__more-btn roboto"></div>
       </div>
     </div>
   );
