@@ -93,8 +93,8 @@ const HomePage = () => {
               src={noResultLogo}
               alt="Нет данных..."
               style={{
-                height: '400px',
-                width: 'fit-content',
+                maxHeight: '400px',
+                maxWidth: '100%',
               }}
             />
           </div>
