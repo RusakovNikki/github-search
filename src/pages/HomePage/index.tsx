@@ -41,8 +41,6 @@ const HomePage = () => {
     navigate(`/repository/${full_name.split('/').join('_')}`);
   };
 
-  console.log(repositories?.items?.length);
-
   return (
     <>
       <Header title="GitHub search" />
