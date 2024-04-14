@@ -2,6 +2,7 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { IRepository, IRepositoryItem } from '../interfaces/repository';
 
 class RepositoryStore {
+  searchValue = '';
   repositories?: IRepository;
   repository?: IRepositoryItem;
   isLoading = false;
@@ -10,6 +11,10 @@ class RepositoryStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  setSearchValue = (newValue: string) => {
+    this.searchValue = newValue;
+  };
 
   getRepository = async (full_name: string) => {
     try {

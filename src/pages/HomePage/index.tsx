@@ -15,10 +15,15 @@ import Button from '../../components/core/Button';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { getRepositoriesByName, isError, isLoading, repositories } =
-    repositoryStore;
-  const [searchText, setSearchText] = useState<string>('');
-  const debouncedSearch = useThrottle(searchText, 1000);
+  const {
+    getRepositoriesByName,
+    isError,
+    isLoading,
+    repositories,
+    searchValue,
+    setSearchValue,
+  } = repositoryStore;
+  const throttleSearch = useThrottle(searchValue, 1000);
   const [repositoriesPage, setRepositoriesPage] = useState<number>(1);
   const [isOpenLoadingSnackbar, setOpenLoadingSnackbar] =
     useState<boolean>(false);
@@ -31,11 +36,11 @@ const HomePage = () => {
   }, [isLoading, isError]);
 
   useEffect(() => {
-    getRepositoriesByName(debouncedSearch, {
+    getRepositoriesByName(throttleSearch, {
       page: 1,
       perPage: 10 * repositoriesPage,
     });
-  }, [debouncedSearch, getRepositoriesByName, repositoriesPage]);
+  }, [throttleSearch, getRepositoriesByName, repositoriesPage]);
 
   const handleClickCard = (full_name: string) => {
     navigate(`/repository/${full_name.split('/').join('_')}`);
@@ -57,10 +62,10 @@ const HomePage = () => {
           <TextField
             label="Поиск"
             placeholder="Введите название..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
           />
-          <CopyButton text={searchText} />
+          <CopyButton text={throttleSearch} />
         </div>
         {!repositories ? (
           <div
